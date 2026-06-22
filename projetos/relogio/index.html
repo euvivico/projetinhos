@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio digital</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: azure;
+            color: black;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color:   rgb(196, 216, 255);
+        }
+
+        .relogio-container {
+            font-size: 4rem;
+            font-weight: bold;
+            padding: 20px 40px;
+            border: 5px solid #d83481;
+            border-radius: 15px;
+            background-color: #fa8bcc;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.11);
+        }
+    </style>
+</head>
+<body>
+    <div class="relogio-container" id="relogio"></div>
+
+    <script>
+        function atualizarRelogio() {
+            const data = new Date();
+            const horas = String(data.getHours()).padStart(2, '0');
+            const minutos = String(data.getMinutes()).padStart(2,'0');
+            const segundos = String(data.getSeconds()).padStart(2,'0');
+            
+            document.getElementById('relogio').textContent = `${horas}:${minutos}:${segundos}`;
+        }
+
+        //Atualiza o relógio a cada 1000 milisegundos (1 segundo)
+        setInterval(atualizarRelogio, 1000)
+
+        //Executa a função imediatamente ao carregar a página
+        atualizarRelogio();
+    </script>
+</body>
+</html>
